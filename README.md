@@ -39,7 +39,7 @@ Once the server is running, you can open your browser and go to [localhost](http
 
 1. [Get current time](public/getCurrentTime.php)
 2. [Query parameters](public/queryParameterDisplay.php)
-> Work in progress 3. [Forms](public/formManagement.php)
+3. [Forms](public/formManagement.php)
 
 ## Discover object-oriented programming
 
