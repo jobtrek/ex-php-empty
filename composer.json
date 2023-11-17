@@ -1,0 +1,21 @@
+{
+    "name": "jobtrek/ex-php",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Jobtrek\\ExPhp\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "pestphp/pest": "^v2.24.3",
+        "laravel/pint": "^v1.13.6"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
