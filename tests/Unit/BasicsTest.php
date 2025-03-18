@@ -20,8 +20,8 @@ describe("Basics", function () {
     test("Calculate string length", function () {
         expect(Basics::length("Toto"))
             ->toBe(4)
-            ->and(Basics::length("Est-ce que ça marche avec des émojis ? 🤔"))
-            ->toBe(40);
+            ->and(Basics::length("Est-ce que ça marche avec des é ou des è ou encore $ ! à ê ?"))
+            ->toBe(60);
     });
     test("Get words to the count", function () {
         expect(Basics::getWordsToCount("Toto Tutu Titi Tata", 2))
