@@ -48,6 +48,37 @@
             </i>
         </p>
     </li>
+    <li>
+        <a href="writeTodoToDatabase.php">Create a todo and insert it in the database</a>
+        <p>
+            <i>
+                On this page, you will create a simple form that allows user to create todos (with a name and a date).
+                The form should be submited to this PHP page.
+                Then, the PHP code should verifiy the user inputs (html sanitize, minimum length...)
+                If the user input is valid, add the todo information to the sqlite database (on the table todo)
+                If the user input is invalid, display an error to the user
+            </i>
+        </p>
+    </li>
+    <li>
+        <a href="displayAllTodosFromDatabase.php">Show the list of all todos (with sort filter)</a>
+        <p>
+            <i>
+                On this page, have to display the list of todolists in chronlogical order.
+                Get the todos from the sqlite database, and display them in a list.
+                You need to add some query parameters to the page to order by date or name.
+            </i>
+        </p>
+    </li>
+    <li>
+        <a href="deleteTodoFromDatabase.php?id=1">Delete a todo from the database</a>
+        <p>
+            <i>
+                On this page, you need to handle the deletion of a todo from the database.
+                The id of the todo to delete will be passed as a query parameter.
+            </i>
+        </p>
+    </li>
 </ul>
 </body>
 </html>
