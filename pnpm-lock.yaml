@@ -12,11 +12,11 @@ importers:
         specifier: 1.9.4
         version: 1.9.4
       '@playwright/test':
-        specifier: ^1.51.0
-        version: 1.51.0
+        specifier: ^1.51.1
+        version: 1.51.1
       '@types/node':
-        specifier: ^22.13.10
-        version: 22.13.10
+        specifier: ^22.13.11
+        version: 22.13.11
 
 packages:
 
@@ -73,26 +73,26 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@playwright/test@1.51.0':
-    resolution: {integrity: sha512-dJ0dMbZeHhI+wb77+ljx/FeC8VBP6j/rj9OAojO08JI80wTZy6vRk9KvHKiDCUh4iMpEiseMgqRBIeW+eKX6RA==}
+  '@playwright/test@1.51.1':
+    resolution: {integrity: sha512-nM+kEaTSAoVlXmMPH10017vn3FSiFqr/bh4fKg9vmAdMfd9SDqRZNvPSiAHADc/itWak+qPvMPZQOPwCBW7k7Q==}
     engines: {node: '>=18'}
     hasBin: true
 
-  '@types/node@22.13.10':
-    resolution: {integrity: sha512-I6LPUvlRH+O6VRUqYOcMudhaIdUVWfsjnZavnsraHvpBwaEyMN29ry+0UVJhImYL16xsscu0aske3yA+uPOWfw==}
+  '@types/node@22.13.11':
+    resolution: {integrity: sha512-iEUCUJoU0i3VnrCmgoWCXttklWcvoCIx4jzcP22fioIVSdTmjgoEvmAO/QPw6TcS9k5FrNgn4w7q5lGOd1CT5g==}
 
   fsevents@2.3.2:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
-  playwright-core@1.51.0:
-    resolution: {integrity: sha512-x47yPE3Zwhlil7wlNU/iktF7t2r/URR3VLbH6EknJd/04Qc/PSJ0EY3CMXipmglLG+zyRxW6HNo2EGbKLHPWMg==}
+  playwright-core@1.51.1:
+    resolution: {integrity: sha512-/crRMj8+j/Nq5s8QcvegseuyeZPxpQCZb6HNk3Sos3BlZyAknRjoyJPFWkpNn8v0+P3WiwqFF8P+zQo4eqiNuw==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.51.0:
-    resolution: {integrity: sha512-442pTfGM0xxfCYxuBa/Pu6B2OqxqqaYq39JS8QDMGThUvIOCd6s0ANDog3uwA0cHavVlnTQzGCN7Id2YekDSXA==}
+  playwright@1.51.1:
+    resolution: {integrity: sha512-kkx+MB2KQRkyxjYPc3a0wLZZoDczmppyGJIvQ43l+aZihkaVvmu/21kiyaHeHjiFxjxNNFnUncKmcGIyOojsaw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -136,22 +136,22 @@ snapshots:
   '@biomejs/cli-win32-x64@1.9.4':
     optional: true
 
-  '@playwright/test@1.51.0':
+  '@playwright/test@1.51.1':
     dependencies:
-      playwright: 1.51.0
+      playwright: 1.51.1
 
-  '@types/node@22.13.10':
+  '@types/node@22.13.11':
     dependencies:
       undici-types: 6.20.0
 
   fsevents@2.3.2:
     optional: true
 
-  playwright-core@1.51.0: {}
+  playwright-core@1.51.1: {}
 
-  playwright@1.51.0:
+  playwright@1.51.1:
     dependencies:
-      playwright-core: 1.51.0
+      playwright-core: 1.51.1
     optionalDependencies:
       fsevents: 2.3.2
 
