@@ -1,11 +1,13 @@
 # Php trainings
 
-> v0.1.43 <!-- x-release-please-version -->
+> v0.1.44 <!-- x-release-please-version -->
 
 ## Prerequisites
 
-1. A working installation of PHP on your system. You need PHP 8.2 minimum.
-2. You need to install [composer](https://getcomposer.org/doc/00-intro.md)
+- [PHP](https://www.php.net/) 8.2 minimum (the repo is actually tested on 8.3)
+- [composer](https://getcomposer.org/doc/00-intro.md)
+- [Node.js](https://nodejs.org) version 22. **Use your linux distribution repository or [fnm](https://github.com/Schniz/fnm?tab=readme-ov-file#installation)**
+- [Pnpm](https://pnpm.io/installation) version 10. **Use pnpm official script for posix systems**
 
 > You can check working installation with `php -v` and `composer -v`.
 
@@ -55,9 +57,9 @@ This will start a docker container with the playwright server and all the browse
 
 Then, when **running your playwright tests**, just add an environment variable with the server location :
 ```shell
-PW_TEST_CONNECT_WS_ENDPOINT=ws://localhost:8080/ npx playwright test
+PW_TEST_CONNECT_WS_ENDPOINT=ws://localhost:8080/ pnpm exec playwright test
 # Or with UI
-PW_TEST_CONNECT_WS_ENDPOINT=ws://localhost:8080/ npx playwright test --ui-port=9090
+PW_TEST_CONNECT_WS_ENDPOINT=ws://localhost:8080/ pnpm exec playwright test --ui-port=9090
 ```
 With this setup, the test logic will run on the host, but the browsers will remain in the container.
 
