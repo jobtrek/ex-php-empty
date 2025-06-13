@@ -1,6 +1,6 @@
 # Php trainings
 
-> v0.1.51 <!-- x-release-please-version -->
+> v0.1.52 <!-- x-release-please-version -->
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ Once the server is running, you can open your browser and go to [localhost](http
 
 You can easily **run the playwright server** on a docker container :
 ```shell
-docker run --rm --network host --init -it mcr.microsoft.com/playwright:v1.51.1-noble /bin/sh -c "cd /home/pwuser && npx -y playwright@1.51.1 run-server --port 8080"
+docker run --rm --network host --init -it mcr.microsoft.com/playwright:v1.53.0-noble /bin/sh -c "cd /home/pwuser && npx -y playwright@1.53.0 run-server --port 8080"
 ```
 This will start a docker container with the playwright server and all the browsers binary and libraries.
 

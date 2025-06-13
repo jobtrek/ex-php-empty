@@ -1,7 +1,7 @@
 {
   "name": "jobtrek/ex-php",
   "type": "project",
-  "version": "0.1.51",
+  "version": "0.1.52",
   "autoload": {
     "psr-4": {
       "Jobtrek\\ExPhp\\": "src/"
@@ -12,9 +12,9 @@
     "ext-pdo": "*"
   },
   "require-dev": {
-    "pestphp/pest": "^v3.1.0",
-    "laravel/pint": "^v1.13.6",
-    "phpstan/phpstan": "^2.0"
+    "pestphp/pest": "v3.8.2",
+    "laravel/pint": "v1.22.1",
+    "phpstan/phpstan": "2.1.17"
   },
   "config": {
     "allow-plugins": {
