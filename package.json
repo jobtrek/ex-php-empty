@@ -1,6 +1,6 @@
 {
   "name": "ex-php",
-  "version": "0.1.52",
+  "version": "0.1.53",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,8 @@
   "author": "",
   "license": "BSD 2-Clause License",
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@playwright/test": "1.53.0",
+    "@biomejs/biome": "2.0.5",
+    "@playwright/test": "1.53.1",
     "@types/node": "22.15.30"
   }
 }
