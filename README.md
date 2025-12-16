@@ -1,13 +1,13 @@
 # Php trainings
 
-> v0.1.69 <!-- x-release-please-version -->
+> v0.1.70 <!-- x-release-please-version -->
 
 ## Prerequisites
 
-- [PHP](https://www.php.net/) 8.5 *A `Dockerfile` is available in this repo if you cannot install PHP 8.5`*
-- [composer](https://getcomposer.org/doc/00-intro.md) (not needed if you use the container)
-- [Node.js](https://nodejs.org) version 24. **Use your linux distribution repository or [fnm](https://github.com/Schniz/fnm?tab=readme-ov-file#installation)**
-- [Pnpm](https://pnpm.io/installation) version 10. **Use pnpm official script for posix systems**
+- [PHP](https://www.php.net/) 8.5 - *A `Dockerfile` is available in this repo if you cannot install PHP 8.5*
+- [composer](https://getcomposer.org/doc/00-intro.md) - (not needed if you use the container)
+- [Node.js](https://nodejs.org) version 24 - **Use your linux distribution repository or [fnm](https://github.com/Schniz/fnm?tab=readme-ov-file#installation)**
+- [Pnpm](https://pnpm.io/installation) version 10 - **Use pnpm official installation script for posix systems**
 
 > You can check working installation with `php -v` and `composer -v`.
 
@@ -22,7 +22,7 @@ composer install
 pnpm i # Npm has nothing to do with php, but we will need it to run tests
 ```
 
-If you do not want (or cannot easily) to install PHP 8.5 on your system, this
+If you do not want to, or cannot, install PHP 8.5 on your system, this
 repo has a simple `Dockerfile` with right PHP version. You can use it to run any PHP commands :
 
 ```shell
