@@ -1,7 +1,9 @@
+FROM composer:2.9.2 AS composer-base
+
 FROM php:8.5-fpm-trixie
 
 # Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY --from=composer-base /usr/bin/composer /usr/bin/composer
 
 # Set working directory
 WORKDIR /app
