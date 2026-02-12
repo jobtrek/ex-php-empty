@@ -1,7 +1,7 @@
 {
   "name": "jobtrek/ex-php",
   "type": "project",
-  "version": "0.1.75",
+  "version": "0.1.76",
   "autoload": {
     "psr-4": {
       "Jobtrek\\ExPhp\\": "src/"
