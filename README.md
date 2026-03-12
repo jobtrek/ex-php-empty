@@ -1,6 +1,6 @@
 # Php trainings
 
-> v0.1.79 <!-- x-release-please-version -->
+> v0.1.80 <!-- x-release-please-version -->
 
 ## Prerequisites
 
