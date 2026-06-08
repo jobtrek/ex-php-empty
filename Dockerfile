@@ -1,4 +1,4 @@
-FROM composer:2.10.0 AS composer-base
+FROM composer:2.10.1 AS composer-base
 
 FROM php:8.5-fpm-trixie
 
