@@ -54,7 +54,7 @@
             <i>
                 On this page, you will create a simple form that allows user to create todos (with a name and a date).
                 The form should be submited to this PHP page.
-                Then, the PHP code should verifiy the user inputs (html sanitize, minimum length...)
+                Then, the PHP code should verify the user inputs (html sanitize, minimum length, valid date that is today or in the future)
                 If the user input is valid, add the todo information to the sqlite database (on the table todo)
                 If the user input is invalid, display an error to the user
             </i>

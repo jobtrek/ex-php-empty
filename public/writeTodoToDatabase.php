@@ -4,7 +4,7 @@
  * On this page, you will create a simple form that allows user to create todos (with a name and a date).
  * The form should be submitted to this PHP page.
  * Then get the inputs from the post request with `filter_input`.
- * Then, the PHP code should verify the user inputs (minimum length, valid date...)
+ * Then, the PHP code should verify the user inputs (minimum length, valid date that is today or in the future)
  * If the user input is valid, insert the new todo information in the sqlite database
  * table `todos` columns `title` and `due_date`. Then redirect the user to the list of todos.
  * If the user input is invalid, display an error to the user
