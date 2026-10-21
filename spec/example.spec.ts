@@ -8,12 +8,20 @@ test('has title', async ({ page }) => {
 })
 
 test('current time page', async ({ page }) => {
+  // The page can be rendered on a different second than the one measured
+  // by the test, so accept any time between before and after the request
+  const before = new Date()
+  before.setMilliseconds(0)
   await page.goto('/getCurrentTime.php')
+  const after = new Date()
   const h1 = page.locator('h1')
 
-  const time = new Date().toISOString()
   await expect(h1).toBeVisible()
-  await expect(h1).toHaveText(time.split('.')[0].split('T').join(' '))
+  const text = (await h1.textContent())?.trim() ?? ''
+  expect(text).toMatch(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/)
+  const displayed = new Date(`${text.replace(' ', 'T')}Z`).getTime()
+  expect(displayed).toBeGreaterThanOrEqual(before.getTime())
+  expect(displayed).toBeLessThanOrEqual(after.getTime())
 })
 
 test('get query parameters', async ({ page }) => {
@@ -51,6 +59,15 @@ test('missing age query parameter', async ({ page }) => {
   await expect(li.last()).toHaveText('Missing age')
 })
 
+test('empty query parameters are missing', async ({ page }) => {
+  await page.goto('/queryParameterDisplay.php?name=&age=')
+  const h1 = page.locator('h1')
+  const li = page.locator('li')
+
+  await expect(h1).toHaveText('No query parameters found')
+  await expect(li).toHaveText(['Missing name', 'Missing age'])
+})
+
 test('missing name query parameter', async ({ page }) => {
   await page.goto('/queryParameterDisplay.php?age=12')
   const h1 = page.locator('h1')
@@ -86,14 +103,14 @@ test('form with no submission', async ({ page }) => {
   await expect(page.locator('h1')).toHaveText('Submit the form')
 })
 
-test('server dont display if there is only name', async ({ page }) => {
+test('server dont display if there is only age', async ({ page }) => {
   await page.goto('/formManagement.php')
   await page.getByLabel('Age').fill('16')
   await page.getByRole('button', { name: /submit/i }).click()
   await expect(page.locator('h1')).toHaveText('Submit the form')
 })
 
-test('server dont display if there is only age', async ({ page }) => {
+test('server dont display if there is only name', async ({ page }) => {
   await page.goto('/formManagement.php')
   await page.getByLabel('Name').fill('John')
   await page.getByRole('button', { name: /submit/i }).click()
@@ -105,8 +122,21 @@ test('server display long name in red', async ({ page }) => {
   await page.getByLabel('Name').fill('Bastien')
   await page.getByLabel('Age').fill('16')
   await page.getByRole('button', { name: /submit/i }).click()
-  await expect(page.locator('h1')).toHaveText('Bastien is 16 years old')
-  await expect(page.getByText('Bastien')).toHaveCSS('color', 'rgb(255, 0, 0)')
+  const h1 = page.locator('h1')
+  await expect(h1).toHaveText('Bastien is 16 years old')
+  await expect(h1.getByText('Bastien')).toHaveCSS('color', 'rgb(255, 0, 0)')
+  // Only the name must be red, not the whole h1
+  await expect(h1).not.toHaveCSS('color', 'rgb(255, 0, 0)')
+})
+
+test('server display name of 6 characters not in red', async ({ page }) => {
+  await page.goto('/formManagement.php')
+  await page.getByLabel('Name').fill('Johnny')
+  await page.getByLabel('Age').fill('16')
+  await page.getByRole('button', { name: /submit/i }).click()
+  const h1 = page.locator('h1')
+  await expect(h1).toHaveText('Johnny is 16 years old')
+  await expect(h1.getByText('Johnny')).not.toHaveCSS('color', 'rgb(255, 0, 0)')
 })
 
 test('server display list for age above 18', async ({ page }) => {
@@ -120,6 +150,27 @@ test('server display list for age above 18', async ({ page }) => {
   await expect(li).toHaveCount(28)
   await expect(li.first()).toHaveText('1')
   await expect(li.last()).toHaveText('28')
+})
+
+test('server dont display list for age 18 or below', async ({ page }) => {
+  await page.goto('/formManagement.php')
+  await page.getByLabel('Name').fill('Toto')
+  await page.getByLabel('Age').fill('18')
+  await page.getByRole('button', { name: /submit/i }).click()
+  await expect(page.locator('h1')).toHaveText('Toto is 18 years old')
+  await expect(page.locator('li')).toHaveCount(0)
+})
+
+test('server display list for age 19', async ({ page }) => {
+  await page.goto('/formManagement.php')
+  await page.getByLabel('Name').fill('Toto')
+  await page.getByLabel('Age').fill('19')
+  await page.getByRole('button', { name: /submit/i }).click()
+  await expect(page.locator('h1')).toHaveText('Toto is 19 years old')
+  const li = page.locator('li')
+  await expect(li).toHaveCount(19)
+  await expect(li.first()).toHaveText('1')
+  await expect(li.last()).toHaveText('19')
 })
 
 test('data remain displayed in form after submission', async ({ page }) => {
