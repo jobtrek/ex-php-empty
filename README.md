@@ -1,6 +1,6 @@
 # Php trainings
 
-> v0.1.97 <!-- x-release-please-version -->
+> v0.1.98 <!-- x-release-please-version -->
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ If you do not want to, or cannot, install PHP 8.5 on your system, this
 repo has a simple `Dockerfile` with right PHP version. You can use it to run any PHP commands :
 
 ```shell
-# FISRT, you need to build the docker image
+# FIRST, you need to build the docker image
 docker build -t ex-php .
 # Install PHP dependencies with PHP into the container
 docker run -it --rm -v $(pwd):/app ex-php sh -c "composer install && pnpm install"
@@ -62,17 +62,19 @@ Once the server is running, you can open your browser and go to [localhost](http
 1. [Get current time](public/getCurrentTime.php)
 2. [Query parameters](public/queryParameterDisplay.php)
 3. [Forms](public/formManagement.php)
-3. [Create todo's and write them to database](public/writeTodoToDatabase.php)
-3. [Display a list of todo's from database](public/displayAllTodosFromDatabase.php)
-3. [Delete à todo in database](public/deleteTodoFromDatabase.php)
+4. [Create todo's and write them to database](public/writeTodoToDatabase.php)
+5. [Display a list of todo's from database](public/displayAllTodosFromDatabase.php)
+6. [Delete a todo in database](public/deleteTodoFromDatabase.php)
 
 ## Install and start Playwright
 
 You can easily **run the playwright server** on a docker container :
 ```shell
-docker run --rm --network host --init -it mcr.microsoft.com/playwright:v1.63.0-noble /bin/sh -c "cd /home/pwuser && npx -y playwright@1.63.0 run-server --port 8080"
+docker run --rm --network host --init -it mcr.microsoft.com/playwright:v1.64.1-noble /bin/sh -c "cd /home/pwuser && npx -y playwright@1.64.1 run-server --port 8080"
 ```
 This will start a docker container with the playwright server and all the browsers binary and libraries.
+
+> The Playwright version in the image and the command must match the `@playwright/test` version installed by `pnpm i` (see `package.json`).
 
 Then, when **running your playwright tests**, just add an environment variable with the server location :
 ```shell
