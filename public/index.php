@@ -10,7 +10,7 @@
 <body>
 <h1>Some php exercises</h1>
 <p>PHP is a dynamic language that can be used to generate html pages and respond to http requests.</p>
-<p>You need to implement 3 special php pages</p>
+<p>You need to implement 6 special php pages</p>
 <ul>
     <li>
         <a href="getCurrentTime.php">Get the current time</a>
@@ -53,9 +53,10 @@
         <p>
             <i>
                 On this page, you will create a simple form that allows user to create todos (with a name and a date).
-                The form should be submited to this PHP page.
-                Then, the PHP code should verify the user inputs (html sanitize, minimum length, valid date that is today or in the future)
-                If the user input is valid, add the todo information to the sqlite database (on the table todo)
+                The form should be submitted to this PHP page.
+                Then, the PHP code should verify the user inputs (non-empty title, valid date that is today or in the future)
+                If the user input is valid, insert the todo in the sqlite database (table `todos`, columns `title` and `due_date`)
+                and redirect the user to the list of todos.
                 If the user input is invalid, display an error to the user
             </i>
         </p>
@@ -64,18 +65,22 @@
         <a href="displayAllTodosFromDatabase.php">Show the list of all todos (with sort filter)</a>
         <p>
             <i>
-                On this page, have to display the list of todolists in chronlogical order.
-                Get the todos from the sqlite database, and display them in a list.
-                You need to add some query parameters to the page to order by date or name.
+                On this page, you have to display the list of todos.
+                Get the todos from the sqlite database, and display them in a list (title and date, date in American format MM/DD/YYYY).
+                By default, the todos are displayed in the order they were added.
+                Add a `sort` query parameter (`name` or `date`) to order the todos by name or by date.
+                The selected sort option must be remembered after the form submission.
             </i>
         </p>
     </li>
     <li>
-        <a href="deleteTodoFromDatabase.php?id=1">Delete a todo from the database</a>
+        <a href="displayAllTodosFromDatabase.php">Delete a todo from the database (from the list of todos)</a>
         <p>
             <i>
                 On this page, you need to handle the deletion of a todo from the database.
-                The id of the todo to delete will be passed as a query parameter.
+                The id of the todo to delete is sent in a POST form from the list of todos (one form per todo).
+                A todo must never be deleted with a GET request.
+                If the deletion is successful, redirect the user to the list of todos.
             </i>
         </p>
     </li>
