@@ -1,10 +1,10 @@
 # Php trainings
 
-> v0.1.98 <!-- x-release-please-version -->
+> v0.1.99 <!-- x-release-please-version -->
 
 ## Prerequisites
 
-- [PHP](https://www.php.net/) 8.5 - *A `Dockerfile` is available in this repo if you cannot install PHP 8.5*
+- [PHP](https://www.php.net/) 8.5 - _A `Dockerfile` is available in this repo if you cannot install PHP 8.5_
 - [composer](https://getcomposer.org/doc/00-intro.md) - (not needed if you use the container)
 - [Node.js](https://nodejs.org) version 24 - **Use your linux distribution repository or [fnm](https://github.com/Schniz/fnm?tab=readme-ov-file#installation)**
 - [Pnpm](https://pnpm.io/installation) version 10 - **Use pnpm official installation script for posix systems**
