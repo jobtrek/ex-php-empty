@@ -1,6 +1,6 @@
 # Php trainings
 
-> v0.1.99 <!-- x-release-please-version -->
+> v0.1.100 <!-- x-release-please-version -->
 
 ## Prerequisites
 
@@ -69,14 +69,16 @@ Once the server is running, you can open your browser and go to [localhost](http
 ## Install and start Playwright
 
 You can easily **run the playwright server** on a docker container :
+
 ```shell
-docker run --rm --network host --init -it mcr.microsoft.com/playwright:v1.64.1-noble /bin/sh -c "cd /home/pwuser && npx -y playwright@1.64.1 run-server --port 8080"
+docker run --rm --network host --init -it mcr.microsoft.com/playwright:v1.65.0-noble /bin/sh -c "cd /home/pwuser && npx -y playwright@1.65.0 run-server --port 8080"
 ```
 This will start a docker container with the playwright server and all the browsers binary and libraries.
 
 > The Playwright version in the image and the command must match the `@playwright/test` version installed by `pnpm i` (see `package.json`).
 
 Then, when **running your playwright tests**, just add an environment variable with the server location :
+
 ```shell
 PW_TEST_CONNECT_WS_ENDPOINT=ws://localhost:8080/ pnpm exec playwright test
 # Or with UI
